@@ -43,7 +43,8 @@ Options and arguments:
 Example of usage:
 
 ```
-./sc -W 1920 -H 1080 -m ./data/model -M meshFull.obj -X 1920 -Y 1080 -g 1.0 -b 0x000000 -c config.txt -S -0.20:-0.1:0.20:0.1 -s 8:32:8```
+./sc -W 1920 -H 1080 -m ./data/model -M meshFull.obj -X 1920 -Y 1080 -g 1.0 -b 0x000000 -c config.txt -S -0.20:-0.1:0.20:0.1 -s 8:32:8
+```
 
 Example of generation png files with car:
 
@@ -51,6 +52,7 @@ Example of generation png files with car:
 ./gen -w <width> -h <height> -c <color> -o <path to store> -s <positions> -m <car object> \
 -l <car length> -S <shadow rectangle> -d <debug>
 ./gen -w 1920 -h 1080  -c 0x404040FF -o ./data/model -s 8:32:8 -m Car.obj -l 1.0  -S -0.2:-0.10:0.2:0.10
+
 ```
 
 
@@ -71,4 +73,4 @@ To rotate view in IMR demo use joystick or touchscreen.
 
 See the https://github.com/CogentEmbedded/sv-utest and
 https://github.com/CogentEmbedded/sv-utest/blob/master/docs/cogente_sv_manual_public.pdf
-for the inctructions how to calibrate and save mesh for IMR demo.
+for the instructions how to calibrate and save mesh for IMR demo.
