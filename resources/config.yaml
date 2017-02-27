@@ -1,0 +1,1782 @@
+%YAML:1.0
+videoSourceInfo:
+   format: 4
+   colorspace: 3
+   width: 1280
+   height: 800
+   frameSize: 2048000
+width: 1920
+height: 1080
+blockageDetectionConfig: "dirty-camera.ini"
+blockageDetectionClassifier: "dirty-camera.svm"
+viewConfig:
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 8.06999981e-01, 8.06999981e-01, 8.06999981e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 1, 0, 1, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1.95000005e+00, 1.95000005e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1.95000005e+00, 1.95000005e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1.29999995e+00, 1.29999995e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., -1.00000009e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1.33299994e+00, 1.33299994e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 2., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 5.00000000e-01, -5.00000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 2., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -5.00000000e-01, -5.00000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 2., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 5.00000000e-01, -2.50000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 2., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -5.00000000e-01, -2.50000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 4., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 7.50000000e-01, -2.50000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 4., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -7.50000000e-01, -2.50000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 4., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 7.50000000e-01, -2.50000000e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 4., 4., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -7.50000000e-01, -2.50000000e-01, 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 3., 1.50000000e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6.66999996e-01, 3.33000004e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 3., 1.50000000e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -6.66999996e-01, 3.33000004e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 3., 1.50000000e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6.66999996e-01, 3.33000004e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 3., 1.50000000e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -6.66999996e-01, 3.33000004e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: -4.1887903213500977e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6., 3., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 7.50000000e-01, 6.66999996e-01, 0. ]
+         -
+            rotationangle: 4.1887903213500977e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6., 3., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -7.50000000e-01, 6.66999996e-01, 0. ]
+         -
+            rotationangle: 1.0471975803375244e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6., 3., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -5.00000000e-01, 6.66999996e-01, 0. ]
+         -
+            rotationangle: -1.0471975803375244e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 6., 3., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 5.00000000e-01, 6.66999996e-01, 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 8.00000012e-01, 8.00000012e-01, 8.00000012e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., -5.00000000e-01 ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 2.66599989e+00, 1.33299994e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 1, 0, 1, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 8.00000012e-01, 8.00000012e-01, 8.00000012e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., -5.00000000e-01 ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 2.79999995e+00, 1.39999998e+00, 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., -3.00000012e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 1, 0, 1, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 6.9834107160568237e-01
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 0., 0. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1.25000000e+00, 1.25000000e+00, 2.50000000e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 1.50000006e-01, 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 8.00000012e-01, 8.00000012e-01, 8.00000012e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., -5.00000000e-01 ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 8.67998779e-01, 8.67998779e-01, 8.67998779e-01 ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 1, 0, 1, 0, 0 ]
+         -
+            showOverlay: [ 1, 1, 0, 1, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 3.1415927410125732e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 1, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 1, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 3.1415927410125732e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 3.1415927410125732e+00
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ -1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 1, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+   -
+      transform:
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+         -
+            rotationangle: 0.
+            rotationvector: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 1. ]
+            multiplier: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 1., 1., 1. ]
+            shift: !!opencv-matrix
+               rows: 3
+               cols: 1
+               dt: f
+               data: [ 0., 0., 0. ]
+      flags:
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+         -
+            showOverlay: [ 0, 0, 0, 0, 0, 0 ]
+channelsConfig:
+   -
+      id: _dev_video0
+   -
+      id: _dev_video1
+   -
+      id: _dev_video2
+   -
+      id: _dev_video3
+meshConfig:
+   channelsConfig:
+      -
+         yTexCoordTopDecayEnd: 0.
+         yTexCoordTopDecayLength: 2.4999999441206455e-03
+         yTexCoordBottomDecayEnd: 1.1499999761581421e+00
+         yTexCoordBottomDecayLength: 2.4999999441206455e-03
+         rFix: !!opencv-matrix
+            rows: 3
+            cols: 3
+            dt: f
+            data: [ 1., 0., 0., 0., 1., 0., 0., 0., 1. ]
+         tFix: !!opencv-matrix
+            rows: 3
+            cols: 1
+            dt: f
+            data: [ 0., 0., 0. ]
+      -
+         yTexCoordTopDecayEnd: 0.
+         yTexCoordTopDecayLength: 2.4999999441206455e-03
+         yTexCoordBottomDecayEnd: 1.1499999761581421e+00
+         yTexCoordBottomDecayLength: 2.4999999441206455e-03
+         rFix: !!opencv-matrix
+            rows: 3
+            cols: 3
+            dt: f
+            data: [ 1., 0., 0., 0., 1., 0., 0., 0., 1. ]
+         tFix: !!opencv-matrix
+            rows: 3
+            cols: 1
+            dt: f
+            data: [ 0., 0., 0. ]
+      -
+         yTexCoordTopDecayEnd: 0.
+         yTexCoordTopDecayLength: 2.4999999441206455e-03
+         yTexCoordBottomDecayEnd: 1.1000000238418579e+00
+         yTexCoordBottomDecayLength: 2.4999999441206455e-03
+         rFix: !!opencv-matrix
+            rows: 3
+            cols: 3
+            dt: f
+            data: [ 1., 0., 0., 0., 1., 0., 0., 0., 1. ]
+         tFix: !!opencv-matrix
+            rows: 3
+            cols: 1
+            dt: f
+            data: [ 0., 0., 0. ]
+      -
+         yTexCoordTopDecayEnd: 0.
+         yTexCoordTopDecayLength: 2.4999999441206455e-03
+         yTexCoordBottomDecayEnd: 9.4999998807907104e-01
+         yTexCoordBottomDecayLength: 2.4999999441206455e-03
+         rFix: !!opencv-matrix
+            rows: 3
+            cols: 3
+            dt: f
+            data: [ 1., 0., 0., 0., 1., 0., 0., 0., 1. ]
+         tFix: !!opencv-matrix
+            rows: 3
+            cols: 1
+            dt: f
+            data: [ 0., 0., 0. ]
+   overlapZonesConfig:
+      -
+         channelCC: 2
+         channelCW: 1
+         startAngle: 0.
+         endAngle: 1.5707963705062866e+00
+      -
+         channelCC: 1
+         channelCW: 3
+         startAngle: 1.5707963705062866e+00
+         endAngle: 3.1415927410125732e+00
+      -
+         channelCC: 3
+         channelCW: 0
+         startAngle: 3.1415927410125732e+00
+         endAngle: 4.7123889923095703e+00
+      -
+         channelCC: 0
+         channelCW: 2
+         startAngle: 4.7123889923095703e+00
+         endAngle: 6.2831854820251465e+00
+   rings: 150
+   sectors: 150
+   shouldDrawOverlapBoundaries: 0
+   shouldOverlapIfBothDecay: 0
+   shouldDrawOverlapOnly: 0
+   shouldDrawOverlapMidline: 0
+   shouldApplyDecayToOverlap: 0
+   shouldUpdateTexCoords: 0
+   zDecayLength: 0.
+   zCoord: 1.
+   overlapWidth: 2.0999997854232788e-01
+   overlapCenter: 0.
+   overlapDecayLength: 2.0000000298023224e-01
+   zoom: 7.4662481689453125e+02
+   tAll: !!opencv-matrix
+      rows: 3
+      cols: 1
+      dt: f
+      data: [ -7.36143646e+01, 0., 0. ]

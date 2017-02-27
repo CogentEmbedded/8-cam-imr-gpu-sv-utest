@@ -1,0 +1,3 @@
+sv_border = 0xD2691E00 0x00000000 1.0
+sc_active_border = 0xD2691E00 0x00000000 2.0
+sc_inactive_border = 0x000000FF 0x00000000 2.0
