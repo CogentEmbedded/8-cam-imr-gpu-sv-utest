@@ -17,6 +17,11 @@ make
 
 ```
 ## Run
+
+Copy resources files to directory where application will be runned.
+Copy libdrivermonitor.so and libsv.so from lib directory to rootfs
+Copy adas-utest directory to /usr/share on rootfs.
+
 To run application 
 ```
 usage: utest-imr-sv [options]
@@ -59,7 +64,7 @@ Example of generation png files with car:
 # Controling
 
 To control application with SpaceNav start SpaceNav daemon: spacenavd command.
-There is a 5 widgets on the main screen: main 3d SurroundView screen, DriverMonitor camera,
+There are a 5 widgets on the main screen: main 3d SurroundView screen, DriverMonitor camera,
 right, left and rear mirror replacement cameras.
 
 To change focus on widget press right button on SpaceNav.
