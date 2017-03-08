@@ -2647,7 +2647,7 @@ void texture_set_view_scale(texture_view_t *vcoord, int x, int y, int w, int h, 
 void texture_draw(texture_data_t *texture, texture_view_t *view, texture_crop_t *crop, GLfloat alpha)
 {
     display_data_t     *display = &__display;
-    shader_data_t      *sh = display->shader[texture->gray ? SHADER_TEXTURE_GRAY : SHADER_TEXTURE];
+    shader_data_t      *sh = NULL;
     GLint               saved_program = 0;
     GLint               active_tex = 0;
     GLint               binding_oes = 0;
@@ -2679,6 +2679,11 @@ void texture_draw(texture_data_t *texture, texture_view_t *view, texture_crop_t 
         1,  1,
         1,  0,
     };
+
+    if (!texture)
+            return;
+
+    sh = display->shader[texture->gray ? SHADER_TEXTURE_GRAY : SHADER_TEXTURE];
 
     if (view)
     {

@@ -799,7 +799,8 @@ static void __destroy_imr_buffer(gpointer data, GstMiniObject *obj)
     imr_meta_t     *meta = gst_buffer_get_imr_meta(buffer);
 
     /* ...destroy texture data */
-    texture_destroy(meta->priv2);
+    if (meta->priv2)
+            texture_destroy(meta->priv2);
 
     TRACE(DEBUG, _b("destroy IMR buffer <%d:%d>"), meta->id, meta->index);
 }
@@ -834,7 +835,7 @@ static int imr_buffer_allocate(void *cdata, int i, GstBuffer *buffer)
     planes[0] = meta->buf->data = vsp_mem_ptr(meta->priv);
 
     /* ...create external texture (for debugging purposes only? - tbd) */
-    CHK_ERR(meta->priv2 = texture_create(w, h, planes, format), -errno);
+    meta->priv2 = texture_create(w, h, planes, format);
 
     /* ...add custom buffer destructor */
     gst_mini_object_weak_ref(GST_MINI_OBJECT(buffer), __destroy_imr_buffer, sv);

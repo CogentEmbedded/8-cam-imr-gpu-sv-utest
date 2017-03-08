@@ -485,7 +485,8 @@ static void __destroy_imr_buffer(gpointer data, GstMiniObject *obj)
     imr_meta_t     *meta = gst_buffer_get_imr_meta(buffer);
 
     /* ...destroy texture data */
-    texture_destroy(meta->priv2);
+    if (meta->priv2)
+            texture_destroy(meta->priv2);
 
     TRACE(DEBUG, _b("imr-buffer <%d:%d> destroyed"), meta->id, meta->index);
 }
