@@ -1935,6 +1935,12 @@ static int app_context_init(widget_data_t *widget, void *data)
     /* ...create driver-monitor engine */
     CHK_ERR(app->dm = objdet_engine_init(&dm_callback, app, 640, 400, 2, 1280, 800, &__dm_cfg), -errno);
 
+    /* ..set up color correction backchannel */
+    for (i = 0; i < 4; i++)
+    {
+            __sv_cfg.vfd[i] = get_v4l2_fd(app->vin, i);
+    }
+    
     /* ...setup GPU-based surround-view engine */
     CHK_ERR(app->sv = sview_engine_init(&__sv_cfg, 1280, 800), -errno);
 

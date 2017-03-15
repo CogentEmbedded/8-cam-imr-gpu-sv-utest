@@ -35,5 +35,7 @@ extern int vin_device_init(vin_data_t *vin, int i, int w, int h, u32 fmt, int si
 
 extern int vin_start(vin_data_t *vin);
 
+extern int get_v4l2_fd(vin_data_t *vin, int i);
+
 #endif  /* __UTEST_VIN_H */
 

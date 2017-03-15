@@ -785,6 +785,11 @@ void vin_destroy(gpointer data, GObject *obj)
     TRACE(INIT, _b("vin-camera-bin destroyed"));
 }
 
+int get_v4l2_fd(vin_data_t *vin, int i)
+{
+        return vin->dev[i].vfd;
+}
+
 /* ...module initialization function */
 vin_data_t * vin_init(char **devname, int num, camera_callback_t *cb, void *cdata)
 {
