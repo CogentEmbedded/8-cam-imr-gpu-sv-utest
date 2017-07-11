@@ -1711,7 +1711,91 @@ static inline widget_data_t * app_kbd_event(app_data_t *app, widget_data_t *widg
     if (event->type == WIDGET_EVENT_KEY_PRESS)
     {
         TRACE(DEBUG, _b("Key pressed: %i"), event->code);
-        sview_engine_keyboard_key(app->sv, event->code, event->state);
+
+        /* SPACE -- switch focus */
+        if (event->code == KEY_SPACE)
+        {
+            if (event->state)
+            {
+                if (app->sv_gpu_mode)
+                {
+                    /* ...right button pressed; start long-press timeout */
+                    if (app->focus != 0)
+                    {
+                        /* ...start long-press sequence */
+                        app->spnav_long_press = 1;
+
+                        /* ...start one-shot timer */
+                        timer_source_start(app->long_press_timer, LONG_PRESS_TIMEOUT, 0);
+                    }
+                }
+                else
+                {
+                    /* ...pass event to the carousel menu */
+                    (app->imr_menu ? carousel_leave(app->imr_menu) : 0);
+                }
+            }
+            else
+            {
+                /* ...check if long-press sequence was detected */
+                if (app->spnav_long_press)
+                {
+                    /* ...timeout has not expired already; treat as a focus switch command */
+                    app->spnav_long_press = 0;
+
+                    /* ...cancel long-touch timer */
+                    timer_source_stop(app->long_press_timer);
+
+                    /* ...switch the focus */
+                    __focus_switch(app, (++app->focus == 5 ? app->focus = 0 : app->focus));
+                }
+                else if (app->focus == 0)
+                {
+                    /* ...ignore event as we toggled the focus */
+                    __focus_switch(app, (++app->focus == 5 ? app->focus = 0 : app->focus));
+                }
+            }
+        }
+        else if (event->code == KEY_ENTER)
+        {
+            if (event->state)
+            {
+                if (app->sv_gpu_mode)
+                {
+                    /* ...disable pending timer */
+                    timer_source_stop(app->timer);
+
+                    /* ...left button pressed */
+                    if (app->focus == 0)
+                    {
+                        /* ...switch to IMR mode */
+                        app->sv_gpu_mode = 0;
+
+                        /* ...reset carousel menu parameters */
+                        (app->imr_menu ? carousel_reset(app->imr_menu) : 0);
+                    }
+                    else if (app->focus > 1)
+                    {
+                        /* ...reset active smart-camera state */
+                        __sc_mesh_reset(app, app->focus - 2);
+                    }
+                }
+                else
+                {
+                    /* ...left button pressed; return back to the GPU-based mode */
+                    app->sv_gpu_mode = 1;
+
+                    /* ...set focus back to the surround-view (it must be there anyway) */
+                    __focus_switch(app, 0);
+
+                }
+            }
+        }
+        else
+        {
+            /* All other keys forwarded to GPU SV */
+            sview_engine_keyboard_key(app->sv, event->code, event->state);
+        }
     }
 
     pthread_mutex_unlock(&app->lock);

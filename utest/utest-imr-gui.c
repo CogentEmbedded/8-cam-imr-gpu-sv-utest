@@ -754,6 +754,12 @@ void carousel_reset(carousel_t *menu)
 /* ...threshold for a push event detection (again - out of the air - tbd) */
 #define __SPNAV_PUSH_THRESHOLD          300
 
+void carousel_leave(carousel_t *menu)
+{
+    /* ...invoke "leave" command */
+    menu_command(menu, GUI_CMD_LEAVE);
+}
+
 int carousel_spnav_event(carousel_t *menu, spnav_event *e)
 {
     if (e->type == SPNAV_EVENT_BUTTON && e->button.press && e->button.bnum == 1)

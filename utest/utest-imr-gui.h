@@ -73,6 +73,7 @@ extern void carousel_draw(carousel_t *menu);
 /* ...spacenav input event processing */
 extern int carousel_spnav_event(carousel_t *menu, spnav_event *e);
 
+extern void carousel_leave(carousel_t *menu);
 /*******************************************************************************
  * Faded border drawing function
  ******************************************************************************/
