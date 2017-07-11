@@ -639,7 +639,7 @@ static int app_input_alloc(void *data, int i, GstBuffer *buffer)
     if (i >= VIN_SV_LEFT && i <= VIN_SV_REAR)
     {
         /* ...initialize surround-view application as needed - tbd */
-        BUG(w != 1280 || h != 800, _x("camera-%d: invalid buffer dimensions: %d*%d"), i, w, h);
+        BUG(w != 1280 || h != 1080, _x("camera-%d: invalid buffer dimensions: %d*%d"), i, w, h);
     }
     else if (i == VIN_DM)
     {
@@ -655,7 +655,7 @@ static int app_input_alloc(void *data, int i, GstBuffer *buffer)
     else if (i >= VIN_SC_LEFT && i <= VIN_SC_REAR)
     {
         /* ...initialize smart-camera library */
-        /* BUG(w != 1280 || h != 800, _x("camera-%d: invalid buffer dimensions: %d*%d"), i, w, h); */
+        /* BUG(w != 1280 || h != 1080, _x("camera-%d: invalid buffer dimensions: %d*%d"), i, w, h); */
     }
 
     /* ...allocate texture to wrap the buffer */
@@ -1933,7 +1933,7 @@ static int app_context_init(widget_data_t *widget, void *data)
     CHK_ERR(app->imr = imr_init(imr_dev_name, IMR_NUMBER - 1 , &imr_cb, app), -errno);
 
     /* ...create driver-monitor engine */
-    CHK_ERR(app->dm = objdet_engine_init(&dm_callback, app, 640, 400, 2, 1280, 800, &__dm_cfg), -errno);
+    CHK_ERR(app->dm = objdet_engine_init(&dm_callback, app, 640, 400, 2, 1280, 1080, &__dm_cfg), -errno);
 
     /* ..set up color correction backchannel */
     for (i = 0; i < 4; i++)
@@ -1942,10 +1942,10 @@ static int app_context_init(widget_data_t *widget, void *data)
     }
     
     /* ...setup GPU-based surround-view engine */
-    CHK_ERR(app->sv = sview_engine_init(&__sv_cfg, 1280, 800), -errno);
+    CHK_ERR(app->sv = sview_engine_init(&__sv_cfg, 1280, 1080), -errno);
 
     /* ...setup IMR-based surround-view engine (FullHD is a maximal possible resolution) */
-    CHK_ERR(app->imr_sv = imr_sview_init(&imr_sv_callback, app, 1280, 800, __vin_format, __vsp_width, __vsp_height, __car_width, __car_height, __shadow_rect), -errno);
+    CHK_ERR(app->imr_sv = imr_sview_init(&imr_sv_callback, app, 1280, 1080, __vin_format, __vsp_width, __vsp_height, __car_width, __car_height, __shadow_rect), -errno);
 
     /* ...adjust carousel parameters for a given aspect ratio */
     __imr_sv_carousel_cfg.x_length *= (float)h / w;
@@ -1969,8 +1969,8 @@ static int app_context_init(widget_data_t *widget, void *data)
     {
         const float *v = __sv_view[i];
         
-        /* ...use 1280*800 UYVY configuration; use pool of 5 buffers */
-        CHK_API(vin_device_init(app->vin, i, 1280, 800, V4L2_PIX_FMT_UYVY, 6));
+        /* ...use 1280*1080 UYVY configuration; use pool of 5 buffers */
+        CHK_API(vin_device_init(app->vin, i, 1280, 1080, V4L2_PIX_FMT_UYVY, 6));
 
         /* ...setup view-port - fill single quadrant */
         texture_set_view(&app->sv_view[i], v[0], v[1], v[2], v[3]);
@@ -2006,7 +2006,7 @@ static int app_context_init(widget_data_t *widget, void *data)
         CHK_API(vsp_allocate_buffers(640, 400, V4L2_PIX_FMT_UYVY, app->dm_mem, 6));
         
         /* ...setup IMR engine */
-        CHK_API(imr_setup(app->imr, IMR_DM, 1280, 800, 640, 400, GST_VIDEO_FORMAT_UYVY, GST_VIDEO_FORMAT_UYVY, 6));
+        CHK_API(imr_setup(app->imr, IMR_DM, 1280, 1080, 640, 400, GST_VIDEO_FORMAT_UYVY, GST_VIDEO_FORMAT_UYVY, 6));
 
         /* ...set initial transformation matrix */
         CHK_API(sc_mesh_setup(app, IMR_DM, __identity, __app_cfg.camera[0].D, __app_cfg.camera[0].K));
@@ -2022,18 +2022,18 @@ static int app_context_init(widget_data_t *widget, void *data)
         const float *v = __sc_view[i];
         const float factor = (float)h / w;
         
-        /* ...set camera into 1280 * 800 UYVY configuration; use pool of 5 buffers */
-        CHK_API(vin_device_init(app->vin, VIN_SC_LEFT + i, 1280, 800/* 640, 400 */, V4L2_PIX_FMT_UYVY, 5));
+        /* ...set camera into 1280 * 1080 UYVY configuration; use pool of 5 buffers */
+        CHK_API(vin_device_init(app->vin, VIN_SC_LEFT + i, 1280, 1080/* 640, 400 */, V4L2_PIX_FMT_UYVY, 5));
 
         /* ...setup view-port */
         texture_set_view(&app->sc_view[i][0], v[0], v[1], v[2], v[3]);
         texture_set_view(&app->sc_view[i][1], v[0] - 0.03 * factor, v[1] - 0.03, v[2] + 0.03 * factor, v[3] + 0.03);
 
         /* ...allocate VSP buffers (we use user-pointer V4L2 configuration) */
-        CHK_API(vsp_allocate_buffers(1280, 800, V4L2_PIX_FMT_UYVY, app->sc_mem[i], 2));
+        CHK_API(vsp_allocate_buffers(1280, 1080, V4L2_PIX_FMT_UYVY, app->sc_mem[i], 2));
         
         /* ...setup IMR engine */
-        CHK_API(imr_setup(app->imr, i, 1280, 800/* 640, 400 */, 1280, 800, GST_VIDEO_FORMAT_UYVY, GST_VIDEO_FORMAT_UYVY, IMR_POOL_SIZE));
+        CHK_API(imr_setup(app->imr, i, 1280, 1080/* 640, 400 */, 1280, 1080, GST_VIDEO_FORMAT_UYVY, GST_VIDEO_FORMAT_UYVY, IMR_POOL_SIZE));
 
         /* ...set initial transformation matrix */
         CHK_API(__sc_mesh_reset(app, i));

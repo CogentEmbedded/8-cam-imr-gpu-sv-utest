@@ -91,7 +91,7 @@ char   *__mesh_file_name = "mesh.obj";
 
 /* ...input (VIN) format */
 u32     __vin_format = V4L2_PIX_FMT_UYVY;
-int     __vin_width = 1280, __vin_height = 800;
+int     __vin_width = 1280, __vin_height = 1080;
 int     __vin_buffers_num = 6;
 
 /* ...VSP dimensions */
