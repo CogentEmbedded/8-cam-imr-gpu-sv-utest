@@ -105,7 +105,7 @@ typedef struct imr_sview
 {
     /* ...application callback */
     const imr_sview_cb_t     *cb;
-    
+
     /* ...callback client data */
     void               *cdata;
 
@@ -126,7 +126,7 @@ typedef struct imr_sview
 
     /* ...VSP queues access lock */
     pthread_mutex_t     vsp_lock;
-    
+
     /* ...data access lock */
     pthread_mutex_t     lock;
 
@@ -150,7 +150,7 @@ typedef struct imr_sview
 
     /* ...alpha-planes IMR output buffers */
     vsp_mem_t          *alpha_plane[2][VSP_POOL_SIZE];
-    
+
     /* ...alpha plane, car model buffers - tbd */
     vsp_mem_t          *alpha_input[1], *car_plane[2];
 
@@ -162,7 +162,7 @@ typedef struct imr_sview
 
     /* ...active alpha-plane output buffers */
     GstBuffer          *alpha_active[4];
-    
+
     /* ...car image buffers */
     GstBuffer          *car_buffer[2];
 
@@ -186,7 +186,7 @@ typedef struct imr_sview
 
     /* ...input (camera) buffers readiness flag */
     u32                 input_ready;
-    
+
     /* ...VSP buffers readiness flag */
     u32                 vsp_ready;
 
@@ -198,7 +198,7 @@ typedef struct imr_sview
 
     /* ...projection/view matrix */
     __mat4x4            pv_matrix;
-    
+
     /* ...model matrix */
     __mat4x4            model_matrix;
 
@@ -287,7 +287,7 @@ static int __vsp_compose(imr_sview_t *sv)
 
     /* ...all buffers must be available */
     BUG(sv->vsp_ready != 0, _x("invalid state: %x"), sv->vsp_ready);
-    
+
     /* ...collect memory descriptors */
     for (i = 0; i < VSP_NUMBER; i++)
     {
@@ -356,7 +356,7 @@ static void vsp_callback(void *data, int result)
     GstBuffer     **buf = sv->vsp_buffers;
     u32             sequence = sv->sequence_out;
     int             i;
-    
+
     /* ...lock application state */
     pthread_mutex_lock(&sv->lock);
 
@@ -366,7 +366,7 @@ static void vsp_callback(void *data, int result)
     /* ...test if we need to update current alpha- and car-model buffers */
     if ((sv->flags & APP_FLAG_UPDATE) && (sequence == sv->last_update))
     {
-        /* ...latch new buffers for subsequent jobs - tbd */ 
+        /* ...latch new buffers for subsequent jobs - tbd */
         for (i = 0; i < CAMERAS_NUMBER; i++)
         {
             sv->alpha_active[i] = gst_buffer_ref(buf[VSP_ALPHA_0 + i]);
@@ -400,7 +400,7 @@ static void vsp_callback(void *data, int result)
 
     /* ...release the lock before passing control to the application */
     pthread_mutex_unlock(&sv->lock);
-    
+
     /* ...should I pass auxiliary buffers as well? ---everything at once? - tbd */
     sv->cb->ready(sv->cdata, buf);
 
@@ -436,7 +436,7 @@ static int __sv_map_setup(imr_sview_t *sv)
     __vec3     *xy[CAMERAS_NUMBER];
     int         n[CAMERAS_NUMBER];
     int         i;
-    
+
     /* ...calculate projection transformations of the points (single-threaded?) */
     CHK_API(mesh_translate(sv->mesh, uv, a, xy, n, sv->pvm_matrix, __sphere_gain));
 
@@ -473,7 +473,7 @@ static int __sv_job_submit(imr_sview_t *sv)
 
         /* ...submit to an engine for processing (increases refcount) */
         CHK_API(imr_engine_push_buffer(sv->imr, i, buffer[i]));
-        
+
         /* ...check if queue gets empty */
         (g_queue_is_empty(&sv->input[i]) ? sv->input_ready |= 1 << i : 0);
     }
@@ -519,7 +519,7 @@ static int __sv_job_submit(imr_sview_t *sv)
 static inline int __sv_alpha_update(imr_sview_t *sv)
 {
     int     i;
-    
+
     for (i = 0; i < CAMERAS_NUMBER; i++)
     {
         /* ...make sure there is no active buffer */
@@ -540,7 +540,7 @@ static inline int __sv_alpha_update(imr_sview_t *sv)
 static void __sv_matrix_reset(imr_sview_t *sv)
 {
     extern __vec3 __default_view;
-    
+
     /* ...reset accumulators */
     sv->rot_acc[0] = __default_view[0];
     sv->rot_acc[1] = __MATH_FLOAT(0);
@@ -595,10 +595,10 @@ static inline int __sv_map_changed(imr_sview_t *sv)
     (step[2] >= __steps[2] ? step[2] = __steps[2] - 1 : 0);
 
     TRACE(DEBUG, _b("angles: %.1f/%.1f/%.2f -> %d/%d/%d"), sv->rot_acc[0], sv->rot_acc[2], sv->scl_acc, step[0], step[1], step[2]);
-    
+
     /* ...ignore update if we have same steps array */
     if (!memcmp(step, sv->step, sizeof(sv->step)))  return 0;
-    
+
     /* ...update current steps */
     memcpy(sv->step, step, sizeof(sv->step));
 
@@ -644,7 +644,7 @@ static void * mesh_update_thread(void *arg)
             TRACE(INIT, _b("termination request received"));
             goto out;
         }
-        
+
         /* ...update IMR mappings */
         if (__sv_map_setup(sv) != 0)
         {
@@ -701,14 +701,14 @@ static int __sv_map_update(imr_sview_t *sv)
     {
         __mat4x4_rotation(sv->model_matrix, sv->rot_acc, sv->scl_acc);
     }
-    
+
 
     /* ...multiply projection/view matrix by model matrix (create PVM matrix copy) */
     __mat4x4_mul(sv->pv_matrix, sv->model_matrix, sv->pvm_matrix);
 
     /* ...make sure both sequences has completed */
     BUG(sv->flags & (APP_FLAG_MAP_UPDATE | APP_FLAG_CAR_UPDATE), _x("invalid state: %X"), sv->flags);
-    
+
     /* ...initiate point-of-view update sequence */
     sv->flags ^= APP_FLAG_UPDATE | APP_FLAG_MAP_UPDATE | APP_FLAG_CAR_UPDATE;
 
@@ -719,7 +719,7 @@ static int __sv_map_update(imr_sview_t *sv)
     for (i = 0; i < CAMERAS_NUMBER; i++)
     {
         GstBuffer  *buffer = sv->alpha_active[i];
-        
+
         /* ...update alpha-planes on next invocation - tbd */
         sv->sequence_imr[IMR_ALPHA_0 + i] = sv->last_update;
 
@@ -732,7 +732,7 @@ static int __sv_map_update(imr_sview_t *sv)
 
     /* ...drop car-model buffers as needed */
     (sv->car_active ? gst_buffer_unref(sv->car_active), sv->car_active = NULL : 0);
-    
+
     TRACE(DEBUG, _b("trigger update sequence"));
 
     /* ...kick update threads */
@@ -813,7 +813,7 @@ static int imr_buffer_allocate(void *cdata, int i, GstBuffer *buffer)
     int             w = meta->width, h = meta->height, format = meta->format;
     int             j = meta->index;
     void           *planes[3] = { NULL, };
-    
+
     if (i < IMR_ALPHA_0)
     {
         /* ...camera plane */
@@ -853,7 +853,7 @@ static int imr_buffer_prepare(void *cdata, int i, GstBuffer *buffer)
     vsp_mem_t      *mem = meta->priv;
     int             j = meta->index;
     u32             sequence;
-    
+
     /* ...protect internal data */
     pthread_mutex_lock(&sv->vsp_lock);
 
@@ -864,10 +864,10 @@ static int imr_buffer_prepare(void *cdata, int i, GstBuffer *buffer)
     if ((sv->flags & APP_FLAG_UPDATE) && (sequence == sv->last_update))
     {
         imr_cfg_t  *cfg = sv->imr_cfg[i];
-        
+
         /* ...configuration must be available */
         BUG(cfg == NULL, _x("imr-%d: no active configuration"), i);
-            
+
         /* ...set new configuration (and release it) */
         imr_cfg_apply(sv->imr, i, cfg);
         imr_cfg_destroy(cfg);
@@ -876,7 +876,7 @@ static int imr_buffer_prepare(void *cdata, int i, GstBuffer *buffer)
     }
 
     /* ...update sequence number */
-    sv->sequence_imr[i] = sequence + 1;    
+    sv->sequence_imr[i] = sequence + 1;
 
     /* ...unlock internal data */
     pthread_mutex_unlock(&sv->vsp_lock);
@@ -909,7 +909,7 @@ static int imr_buffer_process(void *cdata, int i, GstBuffer *buffer)
     imr_meta_t     *meta = gst_buffer_get_imr_meta(buffer);
     int             j = meta->index;
     int             r;
-    
+
     TRACE(DEBUG, _b("imr-buffer <%d:%d> ready: %p (refcount=%d)"), i, j, buffer, GST_MINI_OBJECT_REFCOUNT(buffer));
 
     /* ...lock VSP data access */
@@ -944,7 +944,7 @@ static gboolean __vsp_buffer_dispose(GstMiniObject *obj)
 
     /* ...lock VSP data access */
     pthread_mutex_lock(&sv->vsp_lock);
-    
+
     /* ...submit output buffer to the compositor (adds ref) - tbd - graceful termination */
     __vsp_submit_buffer(sv, VSP_OUTPUT, buffer);
 
@@ -987,13 +987,13 @@ static inline int sv_alpha_setup(imr_sview_t *sv, int W, int H)
     GstBuffer      *buffer;
     vsink_meta_t   *vmeta;
     int             i, j;
-    
+
     /* ...allocate single buffer for alpha-plane transformation */
     CHK_API(vsp_allocate_buffers(256, 1, V4L2_PIX_FMT_GREY, sv->alpha_input, 1));
 
     /* ...get writable pointer */
     alpha = vsp_mem_ptr(sv->alpha_input[0]);
-    
+
     /* ...initialize buffer (single line) */
     for (j = 0; j < 256; j++)   alpha[j] = (u8)j;
 
@@ -1065,14 +1065,14 @@ static int sv_car_buffer_load(imr_sview_t *sv, GstBuffer *buffer, const char *pa
 
     /* ...make sure we have a sane path pointer */
     CHK_ERR(path, -(errno = EINVAL));
-    
+
     t0 = __get_time_usec();
-    
+
     /* ...load PNG image into corresponding car plane */
     CHK_API(create_png(path, &w, &h, &format, &data));
 
     t1 = __get_time_usec();
-    
+
     TRACE(INFO, _b("car-buffer ready: '%s' (time: %u)"), path, (u32)(t1 - t0));
 
     return 0;
@@ -1085,12 +1085,12 @@ static void * car_update_thread(void *arg)
 
     /* ...protect internal data access */
     pthread_mutex_lock(&sv->lock);
-    
+
     /* ...wait for update event */
     while (1)
     {
         int     m;
-        
+
         /* ...wait for car model update flag */
         while ((sv->flags & (APP_FLAG_CAR_UPDATE | APP_FLAG_EOS)) == 0)
         {
@@ -1106,7 +1106,7 @@ static void * car_update_thread(void *arg)
 
         /* ...get index of the buffer to load */
         m = (sv->flags & APP_FLAG_SET_INDEX ? 1 : 0);
-        
+
         /* ...toggle buffers immediately */
         sv->flags ^= APP_FLAG_SET_INDEX;
 
@@ -1136,7 +1136,7 @@ out:
     pthread_mutex_unlock(&sv->lock);
 
     TRACE(INIT, _b("car-model update thread terminated: %m"));
-    
+
     return NULL;
 }
 
@@ -1158,7 +1158,7 @@ static int sv_car_setup(imr_sview_t *sv, int W, int H)
         vsp_mem_t      *mem = sv->car_plane[j];
         int             format = GST_VIDEO_FORMAT_ARGB;
 	void           *planes[3] = { NULL, };
-    
+
         /* ...set memory descriptor */
         meta->priv = mem;
         meta->width = W;
@@ -1203,13 +1203,13 @@ static int sv_runtime_init(imr_sview_t *sv, int w, int h, u32 ifmt, int W, int H
     CHK_ERR(sv->vsp = compositor_init(W, H, ifmt, W, H, ofmt, cw, ch, vsp_callback, sv), -errno);
 
     TRACE(INIT, _b("open mesh file: '%s'"), __mesh_file_name);
-    
+
     /* ...load camera mesh data */
     sv->mesh = mesh_create(__mesh_file_name, shadow);
 
     /* ...create VSP memory pools for cameras planes (two sets hosting opposite cameras) */
     CHK_API(vsp_allocate_buffers(W, H, ifmt, &sv->camera_plane[0][0], 2 * VSP_POOL_SIZE));
-    
+
     /* ...car image preparation */
     CHK_API(sv_car_setup(sv, cw, ch));
 
@@ -1255,7 +1255,7 @@ static int sv_runtime_init(imr_sview_t *sv, int w, int h, u32 ifmt, int W, int H
     for (i = 0; i < CAMERAS_NUMBER; i++)
     {
 	    int     fmt = __pixfmt_v4l2_to_gst(ifmt);
-		    
+
         /* ...setup camera engine */
         CHK_API(imr_setup(sv->imr, i, w, h, W, H, fmt, fmt, VSP_POOL_SIZE));
     }
@@ -1311,7 +1311,7 @@ static gboolean animation_timer(void *data)
     (sv->rot_acc[2] < 0 ? sv->rot_acc[2] += 360 : 0);
 
     sv->scl_acc -= (sv->scl_acc - __MATH_ONE) / 2;
-#endif        
+#endif
     /* ...update view */
     __sv_map_update(sv);
 
@@ -1320,7 +1320,7 @@ static gboolean animation_timer(void *data)
     {
         timer_source_stop(sv->timer);
     }
-    
+
     /* ...release the lock */
     pthread_mutex_unlock(&sv->lock);
 
@@ -1363,6 +1363,9 @@ static inline int sv_spnav_event(imr_sview_t *sv, widget_spnav_event_t *event)
         /* ...update all meshes */
         pthread_mutex_lock(&sv->lock);
 
+        TRACE(1, _b("__sv_matrix_update(sv, %d, %d, %d, %d"),
+              rx, ry, rz, y);
+
         /* ...rotate/scale model matrix */
         __sv_matrix_update(sv, rx, ry, rz, y);
 
@@ -1378,11 +1381,11 @@ static inline int sv_spnav_event(imr_sview_t *sv, widget_spnav_event_t *event)
         /* ...copy current accumulators */
         memcpy(&sv->tr_rot_acc, &sv->rot_acc, sizeof(sv->tr_rot_acc));
         memcpy(&sv->tr_scl_acc, &sv->scl_acc, sizeof(sv->tr_scl_acc));
-        
+
         /* ...start reset sequence */
         timer_source_start(sv->timer, 30, 30);
 
-#if 0        
+#if 0
         /* ...reset model view matrix */
         __sv_matrix_reset(sv);
 
@@ -1400,24 +1403,24 @@ static inline int sv_spnav_event(imr_sview_t *sv, widget_spnav_event_t *event)
         static int      counter = 0;
         char            fname[256];
         u32             t0, t1;
-        
+
         sprintf(fname, "car-render-%04d.png", counter);
         counter = (counter + 1) % 10000;
-        
+
         pthread_mutex_lock(&sv->lock);
 
         t0 = __get_time_usec();
-        
+
         /* ...get current car plane index */
         m = !!(sv->flags & APP_FLAG_SET_INDEX);
         buffer = sv->car_buffer[m];
         meta = gst_buffer_get_imr_meta(buffer);
-        
+
         /* ...get current car plane buffer */
         store_png(fname, meta->width, meta->height, meta->format, vsp_mem_ptr(meta->priv));
 
         t1 = __get_time_usec();
-        
+
         pthread_mutex_unlock(&sv->lock);
 
         TRACE(INFO, _b("snapshot '%s' stored (%u usec)"), fname, (u32)(t1 - t0));
@@ -1437,7 +1440,7 @@ static inline int sv_touch_event(imr_sview_t *sv, widget_touch_event_t *event)
 
     /* ...lock internal data access */
     pthread_mutex_lock(&sv->lock);
-    
+
     /* ...save the touch state */
     switch (event->type)
     {
@@ -1466,9 +1469,9 @@ static inline int sv_touch_event(imr_sview_t *sv, widget_touch_event_t *event)
     {
         int     t;
         int     dist;
-        
+
         /* ...get difference between touch-points */
-        t = sv->ts_pos[1][0] - sv->ts_pos[0][0], dist = t * t;        
+        t = sv->ts_pos[1][0] - sv->ts_pos[0][0], dist = t * t;
         t = sv->ts_pos[1][1] - sv->ts_pos[0][1], dist += t * t;
 
         /* ...check if the distance has been latched already */
@@ -1505,13 +1508,51 @@ static inline int sv_kbd_event(imr_sview_t *sv, widget_key_event_t *event)
 {
     if (event->type == WIDGET_EVENT_KEY_PRESS && event->state)
     {
+        int rx = 0, ry = 0, rz = 0, y = 0;
+
         switch (event->code)
         {
         case KEY_ESC:
             /* ...terminate application (for the moment, just exit - tbd) */
             TRACE(INIT, _b("terminate application"));
             return -1;
-        }        
+        case KEY_LEFT:
+            TRACE(INIT, _b("IMR SV: key left"));
+            rz = -2000;
+            break;
+        case KEY_RIGHT:
+            TRACE(INIT, _b("IMR SV: key right"));
+            rz = 2000;
+            break;
+        case KEY_UP:
+            TRACE(INIT, _b("IMR SV: key up"));
+            rx = -2000;
+            break;
+        case KEY_DOWN:
+            TRACE(INIT, _b("IMR SV: key dow"));
+            rx = 2000;
+            break;
+        case KEY_PAGEUP:
+            TRACE(INIT, _b("IMR SV: key pageup"));
+            y = 2000;
+            break;
+        case KEY_PAGEDOWN:
+            TRACE(INIT, _b("IMR SV: key pagedown"));
+            y = -2000;
+            break;
+        }
+        /* ...update all meshes */
+        pthread_mutex_lock(&sv->lock);
+
+        /* ...rotate/scale model matrix */
+        __sv_matrix_update(sv, rx, ry, rz, y);
+
+        /* ...update meshes */
+        __sv_map_update(sv);
+
+        pthread_mutex_unlock(&sv->lock);
+
+        return 0;
     }
 
     return 0;
@@ -1525,14 +1566,14 @@ static inline int sv_kbd_event(imr_sview_t *sv, widget_key_event_t *event)
 GstBuffer * imr_sview_buf_output(GstBuffer **buf)
 {
     static int  count = 0;
-    
+
     if (count < 0)
     {
         imr_meta_t     *meta = gst_buffer_get_imr_meta(buf[VSP_OUTPUT]);
         void           *data = vsp_mem_ptr(meta->priv);
-        
+
         TRACE(1, _b("pixel-data: %08X:%08X:%08X..."), ((u32 *)data)[0], ((u32 *)data)[1], ((u32 *)data)[2]);
-        
+
         store_png("snapshot.png", meta->width, meta->height, meta->format, data);
 
         count++;
@@ -1545,7 +1586,7 @@ int imr_sview_submit(imr_sview_t *sv, GstBuffer **buf)
 {
     int     i;
     int     r = 0;
-    
+
     /* ...protect internal data */
     pthread_mutex_lock(&sv->lock);
 
@@ -1554,7 +1595,7 @@ int imr_sview_submit(imr_sview_t *sv, GstBuffer **buf)
     {
         g_queue_push_tail(&sv->input[i], gst_buffer_ref(buf[i]));
     }
-    
+
     /* ...submit job if possible */
     if ((sv->input_ready &= ~((1 << CAMERAS_NUMBER) - 1)) == 0)
     {
@@ -1563,7 +1604,7 @@ int imr_sview_submit(imr_sview_t *sv, GstBuffer **buf)
 
     /* ...release data access lock */
     pthread_mutex_unlock(&sv->lock);
-    
+
     return CHK_API(r);
 }
 
@@ -1595,13 +1636,13 @@ int imr_sview_input_event(imr_sview_t *sv, widget_event_t *event)
 int imr_sview_set_view(imr_sview_t *sv, __vec3 rot, __scalar scale, char *image)
 {
     int     r;
-    
+
     /* ...lock application data */
     pthread_mutex_lock(&sv->lock);
-    
+
     /* ...set new matrix */
     __sv_matrix_set(sv, rot[0], rot[1], rot[2], scale);
-    
+
     /* ...set car image */
     sv->car_image = image;
 
@@ -1672,7 +1713,7 @@ imr_sview_t * imr_sview_init(const imr_sview_cb_t *cb, void *cdata, int w, int h
         TRACE(ERROR, _x("failed to initialize engine: %m"));
         goto error;
     }
-    
+
     TRACE(INIT, _b("module initialized"));
 
     return sv;

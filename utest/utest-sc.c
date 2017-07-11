@@ -1793,8 +1793,30 @@ static inline widget_data_t * app_kbd_event(app_data_t *app, widget_data_t *widg
         }
         else
         {
-            /* All other keys forwarded to GPU SV */
-            sview_engine_keyboard_key(app->sv, event->code, event->state);
+            if (app->sv_gpu_mode)
+            {
+                if (app->focus == 0)
+                {
+                    /* ...pass event to surround-view app */
+                    sview_engine_keyboard_key(app->sv, event->code, event->state);
+                }
+                else
+                {
+                    /* ...reset focus revert timer */
+                    timer_source_start(app->timer, FOCUS_REVERT_TIMEOUT, 0);
+
+                    /* ...pass event to smart-camera object */
+                    if (app->focus >= 2)
+                    {
+                        /* sc_spnav_event(app, app->focus - 2, event); */
+                    }
+                }
+            }
+            else
+            {
+                /* ...pass input event to IMR engine (free-form rotation) */
+                imr_sview_input_event(app->imr_sv, container_of(event, widget_event_t, key));
+            }
         }
     }
 
