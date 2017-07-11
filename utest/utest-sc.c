@@ -1415,6 +1415,59 @@ static void __sc_matrix_update(sc_cfg_t *sc, __mat3x3 m, int rx, int ry, int rz,
     __mat3x3_dump(m, "sc-cfg");
 }
 
+static inline int sc_kbd_event(app_data_t *app, int i, widget_key_event_t *event)
+{
+    sc_cfg_t           *sc = &app->sc_cfg[i];
+    app_camera_cfg_t   *cfg = &__app_cfg.camera[i + 1];
+    __mat3x3            m;
+
+
+    if (event->type == WIDGET_EVENT_KEY_PRESS && event->state)
+    {
+        int rx = 0, ry = 0, rz = 0, y = 0;
+
+        switch (event->code)
+        {
+        case KEY_LEFT:
+            TRACE(INIT, _b("IMR SC: key left"));
+            rz = -200;
+            break;
+        case KEY_RIGHT:
+            TRACE(INIT, _b("IMR SC: key right"));
+            rz = 200;
+            break;
+        case KEY_UP:
+            TRACE(INIT, _b("IMR SC: key up"));
+            rx = -200;
+            break;
+        case KEY_DOWN:
+            TRACE(INIT, _b("IMR SC: key down"));
+            rx = 200;
+            break;
+        case KEY_PAGEUP:
+            TRACE(INIT, _b("IMR SC: key pageup"));
+            y = 200;
+            break;
+        case KEY_PAGEDOWN:
+            TRACE(INIT, _b("IMR SC: key pagedown"));
+            y = -200;
+            break;
+        }
+        /* ...sanity check */
+        BUG((u32)i >= (u32)3, _x("invalid sc-engine id: %d"), i);
+
+        TRACE(1, _b("sc-cam-%d: spnav"), i);
+
+        /* ...calculate transformation matrix */
+        __sc_matrix_update(sc, m, rz, rx, ry, y);
+
+        /* ...update unfisheye transformation */
+        sc_mesh_setup(app, i, m, cfg->D, cfg->K);
+
+    }
+    return 0;
+}
+
 static inline int sc_spnav_event(app_data_t *app, int i, widget_spnav_event_t *event)
 {
     sc_cfg_t           *sc = &app->sc_cfg[i];
@@ -1808,7 +1861,7 @@ static inline widget_data_t * app_kbd_event(app_data_t *app, widget_data_t *widg
                     /* ...pass event to smart-camera object */
                     if (app->focus >= 2)
                     {
-                        /* sc_spnav_event(app, app->focus - 2, event); */
+                        sc_kbd_event(app, app->focus - 2, event);
                     }
                 }
             }
